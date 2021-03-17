@@ -1,4 +1,4 @@
-require_relative 'calculate_order'
+require_relative 'lib/services/calculate_order'
 include CalculateOrder
 
 module MakeOrder

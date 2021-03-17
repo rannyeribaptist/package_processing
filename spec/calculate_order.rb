@@ -1,4 +1,4 @@
-require '../calculate_order'
+require '../lib/services/calculate_order'
 include CalculateOrder
 
 RSpec.describe do

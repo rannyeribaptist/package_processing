@@ -1,4 +1,4 @@
-require '../product'
+require '../lib/models/product'
 require 'sqlite3'
 require 'json'
 

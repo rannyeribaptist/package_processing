@@ -1,6 +1,5 @@
 require 'sqlite3'
 require 'json'
-require 'byebug'
 
 module CalculateOrder
   def calc! code, quantity
