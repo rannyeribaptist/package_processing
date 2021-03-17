@@ -12,8 +12,8 @@ module MakeOrder
   cf = gets
 
   total_vs5 = CalculateOrder.calc!('vs5', vs5)
-  total_mb11 = CalculateOrder.calc! 'mb11', mb11
-  total_cf = CalculateOrder.calc! 'cf', cf
+  total_mb11 = CalculateOrder.calc!('mb11', mb11)
+  total_cf = CalculateOrder.calc!('cf', cf)
 
   p total_vs5
   p total_mb11

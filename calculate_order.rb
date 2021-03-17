@@ -1,11 +1,11 @@
-require "sqlite3"
+require 'sqlite3'
 require 'json'
 require 'byebug'
-
 
 module CalculateOrder
   def calc! code, quantity
     return "invalid value inserted for #{code}" unless quantity.to_i > 0
+
     db = SQLite3::Database.open "db/package_processing.db"
     quantity = quantity.to_i
 
@@ -14,9 +14,11 @@ module CalculateOrder
 
     if packs.last.unities >= quantity
       total = create_object({data: [{value: packs.last.value, unities: packs.last.unities, quantity: 1}]})
+
       return format_return(total, code, quantity)
     else
       highest_result = try_highest(packs, quantity)
+
       return format_return(highest_result, code, quantity) if is_right_result?(highest_result, quantity)
 
       progressive_result = progressive_count(highest_result, quantity)
@@ -41,8 +43,6 @@ module CalculateOrder
 
       if quantity >= pack.unities
         pack_object.quantity = count_package(pack, quantity)
-        pack_object.value = pack_object.quantity * pack.value
-
         quantity = update_quantity(pack, quantity)
       end
 
